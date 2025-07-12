@@ -12,6 +12,7 @@ import { useColorScheme } from "@/components/useColorScheme";
 import { Slot } from "expo-router";
 
 import "../global.css";
+import { SafeAreaView } from "react-native";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -59,10 +60,12 @@ function RootLayoutNav() {
   const colorScheme = useColorScheme();
 
   return (
-    <GluestackUIProvider mode={colorScheme === "dark" ? "dark" : "light"}>
-      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        <Slot />
-      </ThemeProvider>
-    </GluestackUIProvider>
+   
+      <GluestackUIProvider mode={colorScheme === "dark" ? "dark" : "light"}>
+        <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+          <Slot />
+        </ThemeProvider>
+      </GluestackUIProvider>
+   
   );
 }
